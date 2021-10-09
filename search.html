@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" placeholder="Enter hero name here" id="search">
+
+<a id="Hero-7" class="hero" hero-id="7" href="#" hero-uri="rattletrap" hero-name="Clockwerk">
+        <img class="hero-img-small" src="one.jpg" style="width: 10%;">
+        <div class="hero-action">
+            <img class="hero-img-large" src=""style="width: 10%;">
+        </div>
+    </a>
+
+<a id="Hero-8" class="hero" hero-id="8" href="#" hero-uri="omniknight" hero-name="Omniknight">
+        <img class="hero-img-small" src="two.jpg"style="width: 10%;">
+        <div class="hero-action">
+            <img class="hero-img-large" src="two.jpg"style="width: 10%;">
+        </div>
+    </a>
+
+<a id="Hero-9" class="hero" hero-id="9" href="#" hero-uri="huskar" hero-name="Huskar">
+        <img class="hero-img-small" src="three.jpg"style="width: 10%;">
+        <div class="hero-action">
+            <img class="hero-img-large" src="three.jpg"style="width: 10%;">
+        </div>
+    </a>
+</body>
+<script>
+  $(document).ready(function () {
+
+$(".hero-name").hide();
+
+$("#search").keyup(function(){
+
+    // Retrieve the input field text 
+    var filter = $(this).val();
+
+    // Loop through the captions div 
+   $(".hero").each(function(){
+
+     // If the div item does not contain the text phrase fade it out
+     if ($(this).attr('hero-name').search(new RegExp(filter, "i")) < 0) {
+            $(this).fadeOut();
+
+     // Show the div item if the phrase matches 
+     } else {
+     $(this).show();
+     }
+    });
+ });
+});
+</script>
+</html>
